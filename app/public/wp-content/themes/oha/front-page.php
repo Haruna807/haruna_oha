@@ -183,6 +183,36 @@
         </div>
       </div>
     </section>
+    
+    <?php
+      // '誰かを起こす' タクソノミーの投稿を取得
+      $args_wake_up = array(
+          'post_type' => 'how_to_use',
+          'tax_query' => array(
+              array(
+                  'taxonomy' => 'how_to_use', // タクソノミーのスラッグ
+                  'field'    => 'slug',
+                  'terms'    => 'type1', // タームのスラッグ（例: 'type1'）
+              ),
+          ),
+          'posts_per_page' => -1 // すべての投稿を取得
+      );
+      $query_wake_up = new WP_Query($args_wake_up);
+
+      // '誰かに起こされる' タクソノミーの投稿を取得
+      $args_woken_up = array(
+          'post_type' => 'how_to_use',
+          'tax_query' => array(
+              array(
+                  'taxonomy' => 'how_to_use', // タクソノミーのスラッグ
+                  'field'    => 'slug',
+                  'terms'    => 'type2', // タームのスラッグ（例: 'type2'）
+              ),
+          ),
+          'posts_per_page' => -1 // すべての投稿を取得
+      );
+      $query_woken_up = new WP_Query($args_woken_up);
+    ?>
 
     <section id="how-to-use" class="how-to-use">
       <div class="how-to-use_inner inner">
@@ -193,117 +223,122 @@
           </div>
         </div>
         <div class="how-to-use_boxes">
+
+        <?php
+        $args_wake_up = array(
+            'post_type' => 'how_to_use',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'how_to_use', // タクソノミーのスラッグ
+                    'field'    => 'slug',
+                    'terms'    => 'type1', // タームのスラッグ
+                ),
+            ),
+            'posts_per_page' => 3, // 最大3件の投稿を取得
+            'orderby' => 'meta_value_num', // メタフィールドでの並び替えを指定
+            'meta_key' => 'step_number', // 並び替えの基準となるカスタムフィールド
+            'order' => 'ASC' // 昇順で並び替え
+        );
+        $query_wake_up = new WP_Query($args_wake_up);
+      ?>
+
           <div class="how-to-use_box">
             <div class="how-to-use_box-title">
               誰かを起こす予定があれば<br class="hidden-pc" />起きれる派の人
               <img src="<?php echo get_template_directory_uri(); ?>/img/step1-title-img.png" alt="" />
             </div>
             <div class="how-to-use_steps">
+            <?php if ($query_wake_up->have_posts()) : ?>
+              <?php while ($query_wake_up->have_posts()) : $query_wake_up->the_post(); ?>
               <div class="how-to-use_step">
                 <div class="step-box">
                   <div class="step-box_head">
                     <div class="step-box_head-text">STEP</div>
-                    <div class="step-box_head-number">01</div>
+                    <div class="step-box_head-number"><?php echo get_field('step_number'); ?></div>
                   </div>
                   <div class="step-box_body">
                     <div class="step-box_image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/step1-1-img.png" alt="" />
+                    <?php
+                      // カスタムフィールドから画像の URL を取得
+                      $step_image_url = get_field('step-image');
+                      // 画像の URL が取得できた場合
+                      if ($step_image_url) {
+                          ?>
+                          <img src="<?php echo esc_url($step_image_url); ?>" alt="Step Image" />
+                          <?php
+                      } else {
+                          echo '<p>画像が設定されていません。</p>';
+                      }
+                      ?>
                     </div>
                     <p class="step-box_text">
-                      起こしたい時間を<br />設定します
+                      <?php echo get_field('step_text'); ?>
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="how-to-use_step">
-                <div class="step-box">
-                  <div class="step-box_head">
-                    <div class="step-box_head-text">STEP</div>
-                    <div class="step-box_head-number">02</div>
-                  </div>
-                  <div class="step-box_body">
-                    <div class="step-box_image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/step1-2-img.png" alt="" />
-                    </div>
-                    <p class="step-box_text">
-                      スマホを枕元に置いて<br />寝ます
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="how-to-use_step">
-                <div class="step-box">
-                  <div class="step-box_head">
-                    <div class="step-box_head-text">STEP</div>
-                    <div class="step-box_head-number">03</div>
-                  </div>
-                  <div class="step-box_body">
-                    <div class="step-box_image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/step1-3-img.png" alt="" />
-                    </div>
-                    <p class="step-box_text">
-                      起こすことによって<br />起きることができます
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+          <?php endif; ?>
           </div>
+        </div>
+
+          <?php
+            $args_wake_up = array(
+            'post_type' => 'how_to_use',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'how_to_use', // タクソノミーのスラッグ
+                    'field'    => 'slug',
+                    'terms'    => 'type2', // タームのスラッグ
+                ),
+            ),
+            'posts_per_page' => 3, // 最大3件の投稿を取得
+            'orderby' => 'meta_value_num', // メタフィールドでの並び替えを指定
+            'meta_key' => 'step_number', // 並び替えの基準となるカスタムフィールド
+            'order' => 'ASC' // 昇順で並び替え
+            );
+            $query_wake_up = new WP_Query($args_wake_up);
+          ?>
           <div class="how-to-use_box is-type2">
             <div class="how-to-use_box-title">
               誰かに起こされれば<br class="hidden-pc" />起きれる派の人
               <img src="<?php echo get_template_directory_uri(); ?>/img/step2-title-img.png" alt="" />
             </div>
             <div class="how-to-use_steps">
+            <?php if ($query_wake_up->have_posts()) : ?>
+              <?php while ($query_wake_up->have_posts()) : $query_wake_up->the_post(); ?>
               <div class="how-to-use_step">
                 <div class="step-box">
                   <div class="step-box_head">
                     <div class="step-box_head-text">STEP</div>
-                    <div class="step-box_head-number">01</div>
+                    <div class="step-box_head-number"><?php echo get_field('step_number'); ?></div>
                   </div>
                   <div class="step-box_body">
                     <div class="step-box_image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/step2-1-img.png" alt="" />
+                    <?php
+                      // カスタムフィールドから画像の URL を取得
+                      $step_image_url = get_field('step-image');
+                      // 画像の URL が取得できた場合
+                      if ($step_image_url) {
+                          ?>
+                          <img src="<?php echo esc_url($step_image_url); ?>" alt="Step Image" />
+                          <?php
+                      } else {
+                          echo '<p>画像が設定されていません。</p>';
+                      }
+                      ?>
                     </div>
                     <p class="step-box_text">
-                      起こされたい時間を<br />設定します
+                    <?php echo get_field('step_text'); ?>
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="how-to-use_step">
-                <div class="step-box">
-                  <div class="step-box_head">
-                    <div class="step-box_head-text">STEP</div>
-                    <div class="step-box_head-number">02</div>
-                  </div>
-                  <div class="step-box_body">
-                    <div class="step-box_image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/step2-2-img.png" alt="" />
-                    </div>
-                    <p class="step-box_text">
-                      スマホを枕元に置いて<br />寝ます
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="how-to-use_step">
-                <div class="step-box">
-                  <div class="step-box_head">
-                    <div class="step-box_head-text">STEP</div>
-                    <div class="step-box_head-number">03</div>
-                  </div>
-                  <div class="step-box_body">
-                    <div class="step-box_image">
-                      <img src="<?php echo get_template_directory_uri(); ?>/img/step2-3-img.png" alt="" />
-                    </div>
-                    <p class="step-box_text">
-                      起こされることによって<br />起きることができます
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
+          </div>
           </div>
         </div>
       </div>

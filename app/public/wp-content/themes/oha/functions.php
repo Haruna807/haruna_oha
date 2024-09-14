@@ -58,4 +58,21 @@ function add_class_on_menu_item_a($atts, $item, $args) {
 }
 add_filter('nav_menu_link_attributes', 'add_class_on_menu_item_a', 10, 3);
 
+
+function create_custom_post_type() {
+  register_post_type('how_to_use',
+      array(
+          'labels' => array(
+              'name' => __('How To Use'),
+              'singular_name' => __('How To Use')
+          ),
+          'public' => true,
+          'has_archive' => true,
+          'supports' => array('thumbnail', 'custom-fields'), // 'title'や'editor'を含めない
+          'show_in_rest' => true, // Gutenbergエディターを使用する場合
+      )
+  );
+}
+add_action('init', 'create_custom_post_type');
+
 ?>
