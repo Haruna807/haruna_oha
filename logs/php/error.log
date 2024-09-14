@@ -25,3 +25,48 @@ Stack trace:
 #7 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
 #8 {main}
   thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 20
+[14-Sep-2024 06:15:18 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 681
+[14-Sep-2024 07:10:12 UTC] PHP Parse error:  syntax error, unexpected token "endif" in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 75
+[14-Sep-2024 07:21:50 UTC] PHP Parse error:  syntax error, unexpected token "endif" in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 88
+[14-Sep-2024 07:26:20 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Term as array in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:87
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 87
+[14-Sep-2024 07:26:26 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Term as array in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:87
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 87
+[14-Sep-2024 07:26:35 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Term as array in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:87
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 87
+[14-Sep-2024 07:29:46 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Term as array in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:90
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 90
+[14-Sep-2024 07:29:47 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Term as array in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:90
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 90
+[14-Sep-2024 07:29:49 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Term as array in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:90
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 90
