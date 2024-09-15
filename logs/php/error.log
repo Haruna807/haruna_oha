@@ -71,3 +71,5 @@ Stack trace:
 #3 {main}
   thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 90
 [14-Sep-2024 15:54:39 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "orderby", expecting ")" in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 238
+[15-Sep-2024 09:14:13 UTC] PHP Warning:  Undefined variable $service_logos in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 433
+[15-Sep-2024 09:14:13 UTC] PHP Warning:  Undefined variable $service_names in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 435

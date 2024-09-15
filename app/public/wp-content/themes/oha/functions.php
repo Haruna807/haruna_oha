@@ -75,4 +75,37 @@ function create_custom_post_type() {
 }
 add_action('init', 'create_custom_post_type');
 
+function create_custom_post_type_merit() {
+  register_post_type('merit',
+      array(
+          'labels' => array(
+              'name' => __('Merits'),
+              'singular_name' => __('Merit')
+          ),
+          'public' => true,
+          'has_archive' => true,
+          'supports' => array('thumbnail', 'custom-fields'), // 'title'や'editor'を含めない
+          'show_in_rest' => true, // Gutenbergエディターを使用する場合
+      )
+  );
+}
+add_action('init', 'create_custom_post_type_merit');
+
+function create_custom_post_type_compare() {
+  register_post_type('compare',
+      array(
+          'labels' => array(
+              'name' => __('Compare'),
+              'singular_name' => __('Compare')
+          ),
+          'public' => true,
+          'has_archive' => true,
+          'supports' => array('custom-fields'), // 'title'や'editor'を含めない
+          'show_in_rest' => true, // Gutenbergエディターを使用する場合
+      )
+  );
+}
+add_action('init', 'create_custom_post_type_compare');
+
+
 ?>

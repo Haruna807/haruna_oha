@@ -352,72 +352,61 @@
             <h2 class="heading__ja">OHA!を使うメリット</h2>
           </div>
         </div>
+
+        <?php
+          $args = array(
+              'post_type'      => 'merit', // カスタム投稿タイプが「merit」と仮定
+              'posts_per_page' => -1,      // すべての投稿を取得
+          );
+
+          $query = new WP_Query($args);
+        ?>
+
         <div class="merit_boxes">
+        <?php if ($query->have_posts()) : ?>
+          <?php while ($query->have_posts()) : $query->the_post(); ?>
+
+          <?php
+            // カスタムフィールド 'merit_reverse' の値を取得
+            $merit_reverse = get_field('merit_reverse');
+
+            // クラスの初期設定
+            $class = 'merit-box';
+
+            // 'merit_reverse' が true の場合に 'is-reverse' クラスを追加
+            if ($merit_reverse) {
+                $class .= ' is-reverse';
+            }
+          ?>
+
           <div class="merit_box">
-            <div class="merit-box">
+            <div class="<?php echo esc_attr($class); ?>">
               <div class="merit-box_content">
                 <div class="merit-box_image">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/merit1-img.png" alt="" />
+                  <?php
+                    $image_url = get_field('merit_image');
+                    if ($image_url) :
+                  ?>
+                    <img src="<?php echo esc_url($image_url); ?>" alt="" />
+                  <?php endif; ?>
                 </div>
                 <div class="merit-box_body">
                   <h3 class="merit-box_head">
-                    <span class="merit-box_number">1</span>
+                    <span class="merit-box_number"><?php echo get_field('merit_number'); ?></span>
                     <span class="merit-box_title">
-                      通りすがりに猫が<br />挨拶してくれるようになる
+                      <?php echo get_field('merit_title'); ?>
                     </span>
                   </h3>
                   <p class="merit-box_text">
-                    偶然の可能性も高いですが、OHA!を使うようになってから、やたらと猫が挨拶してくれるようになった、というお話をいただきます。とはいえ、自惚れすぎてはいけません。挨拶されたからといって一方的に話しかけ続けてしまうと気まぐれ猫ちゃんにうんざりされる上に周りの目も冷ややかです。
+                    <?php echo get_field('merit_text'); ?>
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="merit_box">
-            <div class="merit-box is-reverse">
-              <div class="merit-box_content">
-                <div class="merit-box_image">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/merit2-img.png" alt="" />
-                </div>
-                <div class="merit-box_body">
-                  <h3 class="merit-box_head">
-                    <span class="merit-box_number">2</span>
-                    <span class="merit-box_title">
-                      商店街の福引で<br />3等のティッシュボックスが<br
-                        class="hidden-pc"
-                      />当たる
-                    </span>
-                  </h3>
-                  <p class="merit-box_text">
-                    OHA!を使うことで、どういった因果関係なのか、ちょっと運もよくなります。あなたの街には商店街があるかわかりませんが、もしあればチャンスです。買い物をして、福引に挑んでみましょう。3等のティッシュボックスが当たること間違いなしです。<br />もう景品のポケットティッシュで涙を拭う、なんてことはないのです。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="merit_box">
-            <div class="merit-box">
-              <div class="merit-box_content">
-                <div class="merit-box_image">
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/merit3-img.png" alt="" />
-                </div>
-                <div class="merit-box_body">
-                  <h3 class="merit-box_head">
-                    <span class="merit-box_number">3</span>
-                    <span class="merit-box_title">
-                      掃除をしていたら、<br />過去に自分が隠した<br
-                        class="hidden-pc"
-                      />へそくりが出てきた
-                    </span>
-                  </h3>
-                  <p class="merit-box_text">
-                    自分が隠したへそくりを自分が発見するのはプラスマイナス0ですが、なんだか嬉しいものですよね。過去の自分よ、素敵なサプライズをありがとう。
-                    <br />へそくりをしたことがない方にとっては申し訳ないですがこのイベントは起こりませんのでアプリ使用の再検討をおすすめします。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php endwhile; ?>
+          <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
         </div>
       </div>
     </section>
@@ -435,6 +424,9 @@
         </div>
       </div>
     </div>
+
+
+    
 
     <div class="compare">
       <div class="compare_inner inner">
