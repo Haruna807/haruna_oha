@@ -107,5 +107,22 @@ function create_custom_post_type_compare() {
 }
 add_action('init', 'create_custom_post_type_compare');
 
+function create_qa_post_type() {
+  register_post_type('qa',
+      array(
+          'labels' => array(
+              'name' => __('Q&A'),
+              'singular_name' => __('Q&A')
+          ),
+          'public' => true,
+          'has_archive' => true,
+          'supports' => array('custom-fields'), // title と editor を除外
+          'menu_icon' => 'dashicons-editor-help',
+      )
+  );
+}
+add_action('init', 'create_qa_post_type');
+
+
 
 ?>

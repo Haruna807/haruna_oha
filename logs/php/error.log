@@ -73,3 +73,88 @@ Stack trace:
 [14-Sep-2024 15:54:39 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "orderby", expecting ")" in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 238
 [15-Sep-2024 09:14:13 UTC] PHP Warning:  Undefined variable $service_logos in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 433
 [15-Sep-2024 09:14:13 UTC] PHP Warning:  Undefined variable $service_names in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 435
+[15-Sep-2024 15:38:22 UTC] PHP Fatal error:  Cannot redeclare create_custom_post_type_compare() (previously declared in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php:95) in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 114
+[15-Sep-2024 15:38:22 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/haruna/Local Sites/oha/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 367
+[15-Sep-2024 15:38:22 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/haruna/Local Sites/oha/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 368
+[15-Sep-2024 15:38:24 UTC] PHP Fatal error:  Cannot redeclare create_custom_post_type_compare() (previously declared in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php:95) in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 114
+[15-Sep-2024 15:38:27 UTC] PHP Fatal error:  Cannot redeclare create_custom_post_type_compare() (previously declared in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php:95) in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 114
+[15-Sep-2024 15:38:27 UTC] PHP Fatal error:  Cannot redeclare create_custom_post_type_compare() (previously declared in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php:95) in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 114
+[15-Sep-2024 15:38:28 UTC] PHP Fatal error:  Cannot redeclare create_custom_post_type_compare() (previously declared in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php:95) in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 114
+[15-Sep-2024 15:38:28 UTC] PHP Fatal error:  Cannot redeclare create_custom_post_type_compare() (previously declared in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php:95) in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 114
+[15-Sep-2024 16:07:04 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:553
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 553
+[15-Sep-2024 16:09:04 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:567
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 567
+[15-Sep-2024 16:12:00 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:558
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 558
+[15-Sep-2024 16:17:40 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:558
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 558
+[15-Sep-2024 16:19:39 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:558
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 558
+[15-Sep-2024 16:23:02 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:552
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 552
+[15-Sep-2024 16:26:20 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:554
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 554
+[15-Sep-2024 16:26:55 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:554
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 554
+[15-Sep-2024 16:27:09 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:554
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 554
+[15-Sep-2024 16:27:22 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:554
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 554
+[15-Sep-2024 16:27:39 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php:554
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#3 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 554

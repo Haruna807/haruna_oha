@@ -444,21 +444,21 @@
             <tbody>
               <tr>
                 <th>仲介手数料</th>
-                <td>なし！</td>
-                <td>希望時間に起きれた毎に<br />100円</td>
-                <td>希望時間に起きれた毎に<br />40000ペコ</td>
+                <td><?php echo get_field('fee_oha'); ?></td>
+                <td><?php echo get_field('fee_1'); ?></td>
+                <td><?php echo get_field('fee_2'); ?></td>
               </tr>
               <tr>
                 <th>登録料</th>
-                <td>なし！</td>
-                <td>希望時間に起きれた毎に<br />100円</td>
-                <td>希望時間に起きれた毎に<br />40000ペコ</td>
+                <td><?php echo get_field('registration_fee_oha'); ?></td>
+                <td><?php echo get_field('registration_fee_1'); ?></td>
+                <td><?php echo get_field('registration_fee_2'); ?></td>
               </tr>
               <tr>
                 <th>年間皆勤賞特典</th>
-                <td>あり！</td>
-                <td>なし</td>
-                <td>なし</td>
+                <td><?php echo get_field('annual_award_oha'); ?></td>
+                <td><?php echo get_field('annual_award_1'); ?></td>
+                <td><?php echo get_field('annual_award_2'); ?></td>
               </tr>
             </tbody>
           </table>
@@ -466,6 +466,16 @@
         <div class="compare_attention">横にスクロールできます</div>
       </div>
     </div>
+
+    <?php
+      $args = array(
+          'post_type'      => 'qa',
+          'posts_per_page' => -1,
+      );
+
+      $query = new WP_Query($args);
+    ?>
+
 
     <section class="qa">
       <div class="qa_inner inner">
@@ -476,50 +486,33 @@
           </div>
         </div>
         <div class="qa_boxes">
-          <div class="qa_box qa-box is-open">
+        <?php if ($query->have_posts()) : ?>
+            <?php  $first = true;
+              while ($query->have_posts()) : $query->the_post();
+                  $question = get_field('question');
+                  $answer = get_field('answer');
+                ?>
+
+          <div class="qa_box qa-box <?php echo $first ? 'is-open' : ''; ?>">
             <button type="button" class="qa-box_head js-accordion">
               <span class="qa-box_head-icon">Q</span>
               <span class="qa-box_head-text"
-                >僕があまりにも起きない場合、相手に怒られることはあるのでしょうか？怖くて朝も起きられません。</span
+                ><?php echo esc_html($question); ?></span
               >
             </button>
-            <div class="qa-box_body" style="display: block">
+            <div class="qa-box_body" style="<?php echo $first ? 'display: block;' : 'display: none;'; ?>">
               <div class="qa-box_a">
                 <span class="qa-box_a-icon">A</span>
-                <span class="qa-box_a-text">残念ながら、相手によります。</span>
+                <span class="qa-box_a-text"><?php echo esc_html($answer); ?></span>
               </div>
             </div>
           </div>
-          <div class="qa_box qa-box">
-            <button type="button" class="qa-box_head js-accordion">
-              <span class="qa-box_head-icon">Q</span>
-              <span class="qa-box_head-text">今現在の登録者は何人ですか？</span>
-            </button>
-            <div class="qa-box_body">
-              <div class="qa-box_a">
-                <span class="qa-box_a-icon">A</span>
-                <span class="qa-box_a-text"
-                  >現在の登録者は150万人(から149.998万人を引いた人数)です。この文を2行にしたいのでもう一度言います。現在の登録者は150万人(から149.998万人を引いた人数)です！</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="qa_box qa-box">
-            <button type="button" class="qa-box_head js-accordion">
-              <span class="qa-box_head-icon">Q</span>
-              <span class="qa-box_head-text"
-                >アプリをインストールして使う妄想だけで朝起きられるようになりました！結局インストールはしてないですが、ありがとうございます！</span
-              >
-            </button>
-            <div class="qa-box_body">
-              <div class="qa-box_a">
-                <span class="qa-box_a-icon">A</span>
-                <span class="qa-box_a-text"
-                  >それはよかったです！しかしインストールはしてほしかった！！！</span
-                >
-              </div>
-            </div>
-          </div>
+          <?php $first = false;
+            endwhile; ?>
+        <?php else: ?>
+          <p></p>
+        <?php endif; ?>
+      <?php wp_reset_postdata(); ?>
         </div>
       </div>
     </section>
@@ -537,13 +530,46 @@
           <div id="js-gallery-swiper" class="swiper gallery_swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
+            <!-- <?php
+              $args = array(
+                  'post_type'      => 'gallery',
+                  'posts_per_page' => -1,
+              );
+
+              $query = new WP_Query($args);
+
+              if ($query->have_posts()) :
+                  while ($query->have_posts()) : $query->the_post();
+                      $image = get_field('gallery_image');
+                      $text = get_field('gallery_text');
+            ?> -->
+
               <!-- Slides -->
               <div class="swiper-slide gallery_slide">
                 <div class="gallery_card">
-                  <div class="gallery_card_image"><img src="<?php echo get_template_directory_uri(); ?>/img/gallery-1.png" alt=""></div>
-                  <p class="gallery_card_text">最高な海。を拝んでいる私最高...</p>
+                  <div class="gallery_card_image">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/gallery-1.png" alt="">
+
+                  <!-- <?php if ($image) : ?>
+                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                  <?php endif; ?> -->
+                  
+                  </div>
+                  <p class="gallery_card_text">
+                    <!-- <?php echo esc_html($text); ?> -->
+                    最高な海。を拝んでいる私最高...
+                  </p>
                 </div>
               </div>
+              <?php
+                endwhile;
+                else :
+              ?>
+                <p></p>
+              <?php
+                endif;
+                wp_reset_postdata();
+              ?>
               <div class="swiper-slide gallery_slide">
                 <div class="gallery_card">
                   <div class="gallery_card_image"><img src="<?php echo get_template_directory_uri(); ?>/img/gallery-2.png" alt=""></div>
