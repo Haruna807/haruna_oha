@@ -62,32 +62,40 @@
         <div class="news_card">
           <h2 class="news_title js-in-view fade-in-up">NEWS</h2>
           <div class="news_lists">
-              <?php if (have_posts()) : ?>
-                <?php while(have_posts()) : ?>
-                  <?php the_post(); ?>
-                    <a href="" class="news_list news-link">
-                      <div class="news-link_meta">
-                        <time class="news-link_date" datetime="<?php the_time('c'); ?>"><?php the_time('Y年n月j日'); ?></time>
-                          <?php
-                            $categories = get_the_category();
-                            if ( ! empty($categories) ) :
-                              $category = $categories[0];
-                            $category_class = '';
-                              switch ( $category->slug ) {
-                                  case 'news':
-                                      $category_class = 'is-news';
-                                      break;
-                                  case 'columns':
-                                      $category_class = 'is-column';
-                                      break;
-                                  case 'events':
-                                      $category_class = 'is-event';
-                                      break;
-                                  default:
-                                      $category_class = 'is-default';
-                                      break;
-                              };
-                            ?>
+          <?php
+                $args = array(
+                    'post_type' => 'post', // 投稿タイプ（必要に応じて変更）
+                    'posts_per_page' => 3, // 取得する投稿数
+                    'orderby' => 'date', // 日付順に取得
+                    'order' => 'DESC' // 降順
+                );
+
+                $news_query = new WP_Query($args);
+                if ($news_query->have_posts()) :
+                    while ($news_query->have_posts()) : $news_query->the_post(); ?>
+                        <a href="<?php the_permalink(); ?>" class="news_list news-link">
+                            <div class="news-link_meta">
+                                <time class="news-link_date" datetime="<?php the_time('c'); ?>"><?php the_time('Y年n月j日'); ?></time>
+                                <?php
+                                $categories = get_the_category();
+                                if (!empty($categories)) :
+                                    $category = $categories[0];
+                                    $category_class = '';
+                                    switch ($category->slug) {
+                                        case 'news':
+                                            $category_class = 'is-news';
+                                            break;
+                                        case 'columns':
+                                            $category_class = 'is-column';
+                                            break;
+                                        case 'events':
+                                            $category_class = 'is-event';
+                                            break;
+                                        default:
+                                            $category_class = 'is-default';
+                                            break;
+                                    }
+                                    ?>
                               <div class="news-link_label <?php echo esc_attr($category_class); ?>">
                               <?php echo esc_html($category->name); ?>
                               </div>
@@ -95,7 +103,10 @@
                       </div>
                       <h3 class="news-link_title"><?php the_title(); ?></h3>
                     </a>
-                <?php endwhile; ?>
+                    <?php endwhile;
+                    wp_reset_postdata(); // クエリをリセット
+                else : ?>
+                  <p></p>
               <?php endif; ?>
           </div>
           <div class="news_link"><a href="">もっとみる</a></div>
@@ -567,58 +578,38 @@
           <div id="js-gallery-swiper" class="swiper gallery_swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-            <!-- <?php
-              $args = array(
-                  'post_type'      => 'gallery',
-                  'posts_per_page' => -1,
-              );
-
-              $query = new WP_Query($args);
-
-              if ($query->have_posts()) :
-                  while ($query->have_posts()) : $query->the_post();
-                      $image = get_field('gallery_image');
-                      $text = get_field('gallery_text');
-            ?> -->
-
-              <!-- Slides -->
-              <div class="swiper-slide gallery_slide">
-                <div class="gallery_card">
-                  <div class="gallery_card_image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/gallery-1.png" alt="">
-
-                  <!-- <?php if ($image) : ?>
-                      <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($image); ?>">
-                  <?php endif; ?> -->
-                  
+              <?php
+                $args = array(
+                    'post_type'      => 'gallery',
+                    'posts_per_page' => -1,
+                );
+              
+                $query = new WP_Query($args);
+              
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) : $query->the_post();
+                        $image = get_field('gallery_image');
+                        $text = get_field('gallery_text');
+              ?>
+                  <div class="swiper-slide gallery_slide">
+                      <div class="gallery_card">
+                          <div class="gallery_card_image">
+                              <?php if ($image) : ?>
+                                  <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($text); ?>">
+                              <?php endif; ?>
+                          </div>
+                          <p class="gallery_card_text"><?php echo esc_html($text); ?></p>
+                      </div>
                   </div>
-                  <p class="gallery_card_text">
-                    <!-- <?php echo esc_html($text); ?> -->
-                    最高な海。を拝んでいる私最高...
-                  </p>
-                </div>
-              </div>
               <?php
-                endwhile;
-                else :
+                  endwhile;
+              else :
               ?>
-                <p></p>
+                  <p></p>
               <?php
-                endif;
-                wp_reset_postdata();
+              endif;
+              wp_reset_postdata();
               ?>
-              <div class="swiper-slide gallery_slide">
-                <div class="gallery_card">
-                  <div class="gallery_card_image"><img src="<?php echo get_template_directory_uri(); ?>/img/gallery-2.png" alt=""></div>
-                  <p class="gallery_card_text">モーニングは一番のり。今日も私えらい。</p>
-                </div>
-              </div>
-              <div class="swiper-slide gallery_slide">
-                <div class="gallery_card">
-                  <div class="gallery_card_image"><img src="<?php echo get_template_directory_uri(); ?>/img/gallery-3.png" alt=""></div>
-                  <p class="gallery_card_text">風車のある公園ヨガ。みんな私に釘付け。</p>
-                </div>
-              </div>
             </div>
             <!-- If we need pagination -->
             <div id="js-gallery-pagination" class="swiper-pagination gallery_pagination"></div>
