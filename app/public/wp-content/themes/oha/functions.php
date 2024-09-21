@@ -100,7 +100,7 @@ function create_custom_post_type_compare() {
           ),
           'public' => true,
           'has_archive' => true,
-          'supports' => array('custom-fields'), // 'title'や'editor'を含めない
+          'supports' => array('title','custom-fields'),
           'show_in_rest' => true, // Gutenbergエディターを使用する場合
       )
   );
@@ -122,6 +122,8 @@ function create_qa_post_type() {
   );
 }
 add_action('init', 'create_qa_post_type');
+
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 
 

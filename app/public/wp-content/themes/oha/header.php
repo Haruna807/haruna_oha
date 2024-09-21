@@ -17,7 +17,7 @@
     <meta property="og:image" content="/img/ogp.png" />
 
 
-    <link rel="stylesheet" href="./css/lib/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/lib/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

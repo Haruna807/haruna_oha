@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+
     <div class="mv">
       <div class="mv_inner">
         <div class="mv_content">
@@ -355,7 +356,7 @@
 
         <?php
           $args = array(
-              'post_type'      => 'merit', // カスタム投稿タイプが「merit」と仮定
+              'post_type'      => 'merit', // カスタム投稿タイプが「merit」
               'posts_per_page' => -1,      // すべての投稿を取得
           );
 
@@ -432,6 +433,18 @@
       <div class="compare_inner inner">
         <div class="compare_title js-in-view fade-in-up">他のサービスとの違い</div>
         <div class="compare_content">
+
+        <?php
+          // カスタム投稿タイプ compare のサブループを作成
+          $args = array(
+              'post_type'      => 'compare',
+              'posts_per_page' => 3, // 全ての投稿を取得
+          );
+
+          $compare_query = new WP_Query($args);
+        ?>
+
+
           <table class="compare_table">
             <thead>
               <tr>
@@ -442,24 +455,48 @@
               </tr>
             </thead>
             <tbody>
+            
+            <?php if ($compare_query->have_posts()) : ?>
+            <?php $counter = 0; // カウンターを追加 ?>
+            <?php while ($compare_query->have_posts()) : $compare_query->the_post(); ?>
+                <?php
+                $oha = get_field('oha');
+                $company_1 = get_field('company_1');
+                $company_2 = get_field('company_2');
+
+                // 各投稿に応じた表示
+                if ($counter === 0) : // 1つ目の投稿
+                ?>
+
               <tr>
                 <th>仲介手数料</th>
-                <td><?php echo get_field('fee_oha'); ?></td>
-                <td><?php echo get_field('fee_1'); ?></td>
-                <td><?php echo get_field('fee_2'); ?></td>
+                <td><?php echo $oha; ?></td>
+                <td><?php echo $company_1; ?></td>
+                <td><?php echo $company_2; ?></td>
               </tr>
+
+              <?php elseif ($counter === 1) : // 2つ目の投稿 ?>
               <tr>
                 <th>登録料</th>
-                <td><?php echo get_field('registration_fee_oha'); ?></td>
-                <td><?php echo get_field('registration_fee_1'); ?></td>
-                <td><?php echo get_field('registration_fee_2'); ?></td>
+                <td><?php $oha; ?></td>
+                <td><?php $company_1; ?></td>
+                <td><?php $company_2; ?></td>
               </tr>
+
+              <?php elseif ($counter === 2) : // 3つ目の投稿 ?>
               <tr>
                 <th>年間皆勤賞特典</th>
-                <td><?php echo get_field('annual_award_oha'); ?></td>
-                <td><?php echo get_field('annual_award_1'); ?></td>
-                <td><?php echo get_field('annual_award_2'); ?></td>
+                <td><?php $oha; ?></td>
+                <td><?php $company_1; ?></td>
+                <td><?php $company_2; ?></td>
               </tr>
+
+              <?php endif; ?>
+              <?php endwhile; ?>
+              <?php else: ?>
+                <p></p>
+              <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
             </tbody>
           </table>
         </div>
@@ -551,7 +588,7 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/img/gallery-1.png" alt="">
 
                   <!-- <?php if ($image) : ?>
-                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                      <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($image); ?>">
                   <?php endif; ?> -->
                   
                   </div>
@@ -604,7 +641,8 @@
               <h2 class="heading__ja">お問い合わせ</h2>
             </div>
           </div>
-          <form class="contact_form">
+          <?php echo do_shortcode('[contact-form-7 id="95ef2bd" title="お問い合わせ"]'); ?>
+          <!-- <form class="contact_form">
             <div class="contact_fields">
               <div class="contact_field">
                 <div class="form-field">
@@ -738,7 +776,7 @@
             <div class="contact_button">
               <input type="submit" value="送信する" class="button" />
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </section>
