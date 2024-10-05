@@ -1,4 +1,9 @@
-body {
+/*
+Theme Name: OHA!
+*/
+
+
+body {;
   font-size: 16px;
   line-height: 1.7;
   color: #111;
@@ -1662,6 +1667,7 @@ body {
   font-weight: 700;
   line-height: 100%;
   letter-spacing: 1.98px;
+  margin-left: 6px;
 }
 .form-field_tag.is-option {
   background-color: #43B549;
@@ -1677,6 +1683,10 @@ body {
   .form-field_item {
     margin-top: 0;
   }
+}
+
+.wpcf7-form-control-wrap {
+  width: 100%;
 }
 
 .form-text {
@@ -1695,9 +1705,16 @@ body {
 
 .form-radio {
   line-height: 1.4375;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
-.form-radio:hover .form-radio_text::before {
+.wpcf7-list-item:hover .wpcf7-list-item-label::before {
   border-color: #FABE00;
+}
+
+.wpcf7-list-item {
+  position: relative;
 }
 
 .form-radio_input {
@@ -1706,20 +1723,25 @@ body {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
+  pointer-events: none;
 }
-.form-radio_input:checked + .form-radio_text::after {
+
+.form-radio_input:checked + .wpcf7-list-item-label::after {
   opacity: 1;
 }
-.form-radio_input:focus + .form-radio_text::before {
+.form-radio_input:focus + .wpcf7-list-item-label::before {
   border-color: #FABE00;
 }
 
-.form-radio_text {
+.wpcf7-list-item-label {
   font-weight: 700;
   position: relative;
   padding-left: 28px;
+  display: inline-block; /* ラベルをインラインブロックに */
+  cursor: pointer;
 }
-.form-radio_text::before, .form-radio_text::after {
+
+.wpcf7-list-item-label::before, .wpcf7-list-item-label::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1727,7 +1749,7 @@ body {
           transform: translateY(-50%);
   border-radius: 50%;
 }
-.form-radio_text::before {
+.wpcf7-list-item-label::before {
   width: 24px;
   height: 24px;
   border: 3px solid #111;
@@ -1735,7 +1757,7 @@ body {
   -webkit-transition: border-color 0.3s;
   transition: border-color 0.3s;
 }
-.form-radio_text::after {
+.wpcf7-list-item-label::after {
   width: 10px;
   height: 10px;
   background: #F5810E;
@@ -1797,23 +1819,44 @@ body {
   }
 }
 
+.form-checkbox {
+  position: relative;
+}
+
 .form-checkbox:hover .form-checkbox_text::before {
   border-color: #F5810E;
 }
 
 .form-checkbox_input {
-  width: 1px;
-  height: 1px;
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-  overflow: hidden;
+  width: 20px; /* クリック可能な領域を設定 */
+  height: 20px; /* クリック可能な領域を設定 */
+  position: absolute; /* 他の要素に影響を与えない */
+  opacity: 0;
 }
-.form-checkbox_input:checked + .form-checkbox_text::after {
+
+/* .form-checkbox_input:checked + .form-checkbox_text::after {
   opacity: 1;
 }
 .form-checkbox_input:focus + .form-checkbox_text::before {
   border-color: #FABE00;
+} */
+
+/* チェックボックスが選択されたとき */
+.form-checkbox_input:checked + .wpcf7-form-control-wrap .form-checkbox_text::after {
+  opacity: 1; /* 表示する要素の透明度を変更 */
 }
+
+/* こちらも修正 */
+.form-checkbox_input:checked + .form-checkbox_text::after {
+  opacity: 1; /* 表示する要素の透明度を変更 */
+}
+
+
+/* チェックボックスがフォーカスされたとき */
+.form-checkbox_input:focus + .wpcf7-form-control-wrap .form-checkbox_text::before {
+  border-color: #FABE00; /* ボーダーの色を変更 */
+}
+
 
 .form-checkbox_text {
   position: relative;
@@ -1863,6 +1906,10 @@ body {
 }
 .form-checkbox_text a:hover {
   color: #F5810E;
+}
+
+.form-checkbox:hover .form-checkbox_text::before {
+  border-color: #F5810E;
 }
 
 .cta {

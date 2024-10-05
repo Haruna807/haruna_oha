@@ -137,7 +137,25 @@ const intersectionObserver = new IntersectionObserver(function(entries) {
   });
 });
 
-const inViewItems = document.querySelectorAll(".js-in-view");
-inViewItems.forEach(function(inViewItem) {
-  intersectionObserver.observe(inViewItem);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 各ラジオボタンにクラスを追加
+    const radios = document.querySelectorAll('input[name="radio-612"]');
+    radios.forEach(function(radio) {
+        radio.classList.add('form-radio_input');
+    });
 });
+
+document.querySelectorAll('.wpcf7-list-item-label').forEach(function(label) {
+  label.addEventListener('click', function() {
+      const input = label.previousElementSibling; // ラベルの前の兄弟要素を取得
+      input.checked = true; // チェックを付ける
+  });
+});
+
+
+
+
+
+

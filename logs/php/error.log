@@ -410,3 +410,4 @@ Stack trace:
 #3 {main}
   thrown in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 591
 [21-Sep-2024 23:22:37 UTC] PHP Parse error:  syntax error, unexpected token "endwhile", expecting end of file in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/front-page.php on line 634
+[03-Oct-2024 04:57:44 UTC] PHP Warning:  wp_update_plugins(): 予期しないエラーが発生しました。WordPress.org かこのサーバーの設定に何か問題があるかもしれません。問題が続くようであれば、<a href="https://ja.wordpress.org/support/forums/">サポートフォーラム</a>を参照してみてください。 (WordPress は WordPress.org との安全な接続を確立できませんでした。サーバー管理者にご連絡ください) in /Users/haruna/Local Sites/oha/app/public/wp-includes/functions.php on line 6085
