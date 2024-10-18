@@ -1616,6 +1616,9 @@ body {;
 .contact_button {
   margin-top: 28px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 70px;
 }
 @media screen and (min-width: 768px) {
   .contact_button {
@@ -1846,11 +1849,9 @@ body {;
   opacity: 1; /* 表示する要素の透明度を変更 */
 }
 
-/* こちらも修正 */
-.form-checkbox_input:checked + .form-checkbox_text::after {
-  opacity: 1; /* 表示する要素の透明度を変更 */
+.form-checkbox_input:checked + .wpcf7-form-control .form-checkbox_text::after {
+  opacity: 1; /* チェックボックスが選択されたときのスタイル */
 }
-
 
 /* チェックボックスがフォーカスされたとき */
 .form-checkbox_input:focus + .wpcf7-form-control-wrap .form-checkbox_text::before {
@@ -1864,7 +1865,7 @@ body {;
   font-size: 14px;
   font-weight: 700;
 }
-.form-checkbox_text::before, .form-checkbox_text::after {
+.form-checkbox_text::before, .check-icon {
   content: "";
   position: absolute;
   left: 0;
@@ -1885,16 +1886,17 @@ body {;
     margin-top: 2px;
   }
 }
-.form-checkbox_text::after {
+
+.check-icon {
   width: 23px;
-  height: 17.53px;
-  left: -1px;
+  height: 20px;
+  left: 14px;
   margin-top: -1.2px;
   background: url(../img/check-icon.png) no-repeat center center/contain;
   opacity: 0;
 }
 @media screen and (min-width: 768px) {
-  .form-checkbox_text::after {
+  .check-icon {
     margin-top: 0.8px;
   }
 }

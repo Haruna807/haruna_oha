@@ -127,18 +127,22 @@ jQuery(window).on("scroll", function() {
 
 // スクロールに応じて要素を「フワッ」と登場させる
 
+
+const targets = document.querySelectorAll('.fade-in-up'); // ターゲットを選択
+
 const intersectionObserver = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
-      entry.target.classList.add("is-in-view");
-    } else {
-      // entry.target.classList.remove("is-in-view");
+      entry.target.classList.add("is-in-view"); // 画面に入ったときにクラスを追加
     }
   });
 });
 
+targets.forEach(target => intersectionObserver.observe(target)); // 各ターゲットを監視
 
 
+
+// ラジオボタン
 document.addEventListener('DOMContentLoaded', function() {
     // 各ラジオボタンにクラスを追加
     const radios = document.querySelectorAll('input[name="radio-612"]');
@@ -147,12 +151,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.querySelectorAll('.wpcf7-list-item-label').forEach(function(label) {
-  label.addEventListener('click', function() {
-      const input = label.previousElementSibling; // ラベルの前の兄弟要素を取得
-      input.checked = true; // チェックを付ける
+
+// チェックボックス
+document.addEventListener('DOMContentLoaded', function() {
+  const checkbox = document.querySelector('.form-checkbox_input');
+  const icon = document.querySelector('.check-icon'); // アイコンを取得
+
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      icon.style.opacity = '1'; // チェックされたときの不透明度
+    } else {
+      icon.style.opacity = '0'; // チェックが外されたときの不透明度
+    }
   });
 });
+
+
+
 
 
 
