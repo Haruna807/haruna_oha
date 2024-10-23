@@ -2,6 +2,18 @@
 Theme Name: OHA!
 */
 
+html {
+  scroll-behavior: smooth;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+
 
 body {;
   font-size: 16px;
@@ -1706,45 +1718,83 @@ body {;
   outline: none;
 }
 
+
 .form-radio {
   line-height: 1.4375;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-.wpcf7-list-item:hover .wpcf7-list-item-label::before {
+/* .wpcf7-list-item:hover .wpcf7-list-item-label::before {
+  border-color: #FABE00;
+} */
+
+
+.wpcf7-list-item:hover label::before {
   border-color: #FABE00;
 }
+
 
 .wpcf7-list-item {
   position: relative;
 }
 
-.form-radio_input {
+input[type="radio"] {
   width: 1px;
   height: 1px;
   position: absolute;
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
-  pointer-events: none;
 }
 
-.form-radio_input:checked + .wpcf7-list-item-label::after {
-  opacity: 1;
+input[type="radio"]:checked + label::after {
+  opacity: 1; /* ここを修正 */
 }
-.form-radio_input:focus + .wpcf7-list-item-label::before {
+
+
+input[type="radio"]:focus + label::before {
   border-color: #FABE00;
 }
 
-.wpcf7-list-item-label {
+/* .wpcf7-list-item:hover label::before {
+  border-color: #FABE00;
+} */
+
+
+.wpcf7-radio label {
   font-weight: 700;
   position: relative;
   padding-left: 28px;
-  display: inline-block; /* ラベルをインラインブロックに */
-  cursor: pointer;
+  display: inline-block;
 }
 
-.wpcf7-list-item-label::before, .wpcf7-list-item-label::after {
+label::before, label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.wpcf7-radio label::before {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #111;
+  left: 0;
+  transition: border-color 0.3s;
+}
+
+.wpcf7-radio label::after {
+  width: 10px;
+  height: 10px;
+  background: #F5810E;
+  left: 7px;
+  opacity: 0;
+}
+
+
+
+/* .wpcf7-list-item-label::before, .wpcf7-list-item-label::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1766,7 +1816,7 @@ body {;
   background: #F5810E;
   left: 7px;
   opacity: 0;
-}
+}  */
 
 .form-select {
   -webkit-appearance: none;

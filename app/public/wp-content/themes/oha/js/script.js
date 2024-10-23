@@ -143,13 +143,37 @@ targets.forEach(target => intersectionObserver.observe(target)); // 各ターゲ
 
 
 // ラジオボタン
+// document.addEventListener('DOMContentLoaded', function() {
+//     // 各ラジオボタンにクラスを追加
+//     const radios = document.querySelectorAll('input[name="radio-612"]');
+//     radios.forEach(function(radio) {
+//         radio.classList.add('form-radio_input');
+//     });
+// });
+
 document.addEventListener('DOMContentLoaded', function() {
-    // 各ラジオボタンにクラスを追加
-    const radios = document.querySelectorAll('input[name="radio-612"]');
-    radios.forEach(function(radio) {
-        radio.classList.add('form-radio_input');
-    });
+  const radios = document.querySelectorAll('input[name="radio-612"]');
+  radios.forEach(function(radio, index) {
+      // idを設定
+      const id = 'radio-' + (index + 1);
+      radio.setAttribute('id', id);
+
+      // 次の兄弟要素（label）を取得
+      const label = radio.nextElementSibling;
+      if (label) {
+          label.setAttribute('for', id); // labelのfor属性を設定
+      }
+  });
 });
+
+
+
+
+
+
+
+
+
 
 
 // チェックボックス

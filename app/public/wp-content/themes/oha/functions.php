@@ -126,5 +126,26 @@ add_action('init', 'create_qa_post_type');
 add_filter('wpcf7_autop_or_not', '__return_false');
 
 
+add_filter('wpcf7_form_elements', function($content) {
+  // ラジオボタンのinputにidを付与
+  $content = preg_replace_callback('/<input[^>]+type=["\']?radio["\']?[^>]+name=["\']?([^"\']+)["\'][^>]*>/', function($matches) {
+      // IDを生成
+      $id = 'radio-' . uniqid(); // 一意のIDを生成
+      return str_replace('<input', '<input id="' . $id . '"', $matches[0]);
+  }, $content);
+
+  // labelを作成
+  $content = preg_replace_callback('/<span class="wpcf7-list-item-label">([^<]+)<\/span>/', function($matches) use ($content) {
+      // 直前のラジオボタンのIDを取得
+      preg_match('/id="([^"]+)"/', $content, $idMatches);
+      $id = $idMatches[1]; // 取得したIDを使用
+      return '<label for="' . $id . '">' . trim(strip_tags($matches[0])) . '</label>'; // ラベルを作成
+  }, $content);
+
+  return $content;
+});
+
+
+
 
 ?>
