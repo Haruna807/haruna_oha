@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2023 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -35,7 +37,7 @@ define( 'AI1WM_DEBUG', false );
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1WM_VERSION', '7.86' );
+define( 'AI1WM_VERSION', '7.90' );
 
 // ===============
 // = Plugin Name =
@@ -300,7 +302,7 @@ define( 'AI1WM_W3TC_CONFIG_FILE', 'w3tc-config' . DIRECTORY_SEPARATOR . 'master.
 // ==================
 // = Error Log Name =
 // ==================
-define( 'AI1WM_ERROR_NAME', 'error.log' );
+define( 'AI1WM_ERROR_NAME', 'error-log-%s.log' );
 
 // ==============
 // = Secret Key =
@@ -470,6 +472,11 @@ if ( ! defined( 'AI1WM_MAX_SELECT_RECORDS' ) ) {
 // = Max Storage Cleanup =
 // =======================
 define( 'AI1WM_MAX_STORAGE_CLEANUP', 24 * 60 * 60 );
+
+// ===================
+// = Max Log Cleanup =
+// ===================
+define( 'AI1WM_MAX_LOG_CLEANUP', 7 * 24 * 60 * 60 );
 
 // =====================
 // = Disk Space Factor =

@@ -26,12 +26,34 @@
     />
 
     <?php wp_head(); ?>
+
+    <style>
+      .form-select {
+        background: url(<?php echo get_template_directory_uri(); ?>/img/select-arrow.png) no-repeat center right 15px/9.451px 6.969px;
+      }
+      .check-icon {
+        background: url(<?php echo get_template_directory_uri(); ?>/img/check-icon.png) no-repeat center center/contain;
+      }
+      .movie {
+        background: url(<?php echo get_template_directory_uri(); ?>/img/section-bg.png) repeat top left/529px auto;
+      }
+      .qa-box_head::after {
+        background: url(<?php echo get_template_directory_uri(); ?>/img/qa-arrow.png) no-repeat center center/contain;
+      }
+      .gallery_prev {
+        left: 0;
+        background: url(<?php echo get_template_directory_uri(); ?>/img/prev-icon.png) no-repeat center center/contain;
+      }
+      .gallery_next {
+        background: url(<?php echo get_template_directory_uri(); ?>/img/next-icon.png) no-repeat center center/contain;
+      }
+    </style>
   </head>
   <body>
     <header class="header">
       <div class="header_inner">
         <h1 class="header_logo">
-          <a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="OHA!" /></a>
+          <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="OHA!" /></a>
         </h1>
 
         <?php
@@ -46,12 +68,6 @@
           );
         ?>
 
-        <!-- <nav class="header_nav">
-          <a href="#about" class="header_link">サービスについて</a>
-          <a href="#how-to-use" class="header_link">使い方</a>
-          <a href="#merit" class="header_link">メリット</a>
-          <a href="#contact" class="header_button button">お問い合わせ</a>
-        </nav> -->
         <button id="js-drawer-icon" class="header_open drawer-icon">
           <span class="drawer-icon_bar"></span>
           <span class="drawer-icon_bar"></span>
@@ -74,12 +90,5 @@
       );
     ?>
 
-      <!-- <nav class="drawer-content_menu">
-        <a href="#about" class="drawer-content_link">サービスについて</a>
-        <a href="#how-to-use" class="drawer-content_link">使い方</a>
-        <a href="#merit" class="drawer-content_link">メリット</a>
-        <div class="drawer-content_button">
-          <a href="#contact" class="button">お問い合わせ</a>
-        </div>
-      </nav> -->
+
     </div>

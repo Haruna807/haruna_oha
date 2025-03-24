@@ -419,3 +419,45 @@ Stack trace:
 [23-Oct-2024 14:49:09 UTC] PHP Warning:  Undefined variable $id in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 139
 [23-Oct-2024 14:49:09 UTC] PHP Warning:  Undefined variable $id in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 139
 [23-Oct-2024 14:49:09 UTC] PHP Warning:  Undefined variable $id in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 139
+[13-Mar-2025 05:46:54 UTC] PHP Warning:  require(/Users/haruna/Local Sites/oha/app/public/wp-includes/class-wp-exception.php): Failed to open stream: No such file or directory in /Users/haruna/Local Sites/oha/app/public/wp-settings.php on line 42
+[13-Mar-2025 05:46:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/Users/haruna/Local Sites/oha/app/public/wp-includes/class-wp-exception.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in /Users/haruna/Local Sites/oha/app/public/wp-settings.php:42
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-config.php(103): require_once()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-load.php(50): require_once('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/wp-admin/admin.php(34): require_once('/Users/haruna/L...')
+#3 /Users/haruna/Local Sites/oha/app/public/wp-admin/edit.php(10): require_once('/Users/haruna/L...')
+#4 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-settings.php on line 42
+[13-Mar-2025 06:54:59 UTC] PHP Warning:  filemtime(): stat failed for /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/css/style.css in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 13
+[13-Mar-2025 06:55:03 UTC] PHP Warning:  filemtime(): stat failed for /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/css/style.css in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 13
+[13-Mar-2025 06:57:29 UTC] PHP Warning:  filemtime(): stat failed for /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/css/style.css in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/functions.php on line 13
+[15-Mar-2025 06:58:09 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 476
+[15-Mar-2025 06:58:09 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 477
+[15-Mar-2025 06:58:09 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 478
+[15-Mar-2025 06:58:09 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 479
+[18-Mar-2025 20:18:54 UTC] PHP Warning:  wp_update_plugins(): 予期しないエラーが発生しました。WordPress.org かこのサーバーの設定に何か問題があるかもしれません。問題が続くようであれば、<a href="https://ja.wordpress.org/support/forums/">サポートフォーラム</a>を参照してみてください。 (WordPress は WordPress.org との安全な接続を確立できませんでした。サーバー管理者にご連絡ください) in /Users/haruna/Local Sites/oha/app/public/wp-includes/functions.php on line 6114
+[20-Mar-2025 15:54:47 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function get_post_type_archive_link(), 0 passed in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/archive-news.php on line 8 and exactly 1 expected in /Users/haruna/Local Sites/oha/app/public/wp-includes/link-template.php:1302
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/archive-news.php(8): get_post_type_archive_link()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#3 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#4 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-includes/link-template.php on line 1302
+[20-Mar-2025 15:55:01 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function get_post_type_archive_link(), 0 passed in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/archive-news.php on line 8 and exactly 1 expected in /Users/haruna/Local Sites/oha/app/public/wp-includes/link-template.php:1302
+Stack trace:
+#0 /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/archive-news.php(8): get_post_type_archive_link()
+#1 /Users/haruna/Local Sites/oha/app/public/wp-includes/template-loader.php(106): include('/Users/haruna/L...')
+#2 /Users/haruna/Local Sites/oha/app/public/wp-blog-header.php(19): require_once('/Users/haruna/L...')
+#3 /Users/haruna/Local Sites/oha/app/public/index.php(17): require('/Users/haruna/L...')
+#4 {main}
+  thrown in /Users/haruna/Local Sites/oha/app/public/wp-includes/link-template.php on line 1302
+[20-Mar-2025 16:37:24 UTC] PHP Warning:  Undefined variable $current_term in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/taxonomy-news_category.php on line 12
+[20-Mar-2025 16:37:24 UTC] PHP Warning:  Undefined variable $current_term in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/taxonomy-news_category.php on line 12
+[20-Mar-2025 16:37:24 UTC] PHP Warning:  Undefined variable $current_term in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/taxonomy-news_category.php on line 12
+[20-Mar-2025 17:55:10 UTC] PHP Warning:  Undefined variable $category in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 91
+[20-Mar-2025 17:55:10 UTC] PHP Warning:  Attempt to read property "slug" on null in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 91
+[20-Mar-2025 17:55:10 UTC] PHP Warning:  Undefined variable $category in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 91
+[20-Mar-2025 17:55:10 UTC] PHP Warning:  Attempt to read property "slug" on null in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 91
+[20-Mar-2025 17:55:10 UTC] PHP Warning:  Undefined variable $category in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 91
+[20-Mar-2025 17:55:10 UTC] PHP Warning:  Attempt to read property "slug" on null in /Users/haruna/Local Sites/oha/app/public/wp-content/themes/oha/page-top.php on line 91

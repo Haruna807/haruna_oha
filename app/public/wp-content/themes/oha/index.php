@@ -381,7 +381,7 @@
           ><br />てかほんと使って。お願い。
         </p>
         <div class="cta_button">
-          <a href="#contact" class="button">今すぐダウンロード</a>
+          <a href="https://www.apple.com/jp/app-store/" class="button" target="_blank">今すぐダウンロード</a>
         </div>
       </div>
     </div>
